@@ -1,16 +1,16 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
 import { useTypeSelector } from '../hooks/useTypeSelector';
 import {fetchUsers} from "../store/actionCreator/user";
+import {useActions} from "../hooks/useAction";
 
 const UserList:React.FC = () => {
 
     const {users,error,loading} = useTypeSelector(state=> state.user);
-    const dispatch = useDispatch();
+    const {fetchUsers} = useActions()
 
     useEffect(()=>{
 
-        dispatch(fetchUsers())
+        fetchUsers()
 
     },[])
 
@@ -28,7 +28,7 @@ const UserList:React.FC = () => {
             {
                 users.map(user=>
 
-                    <div>{user.name}</div>
+                    <div key = {user.id}>{user.name}</div>
 
                 )
             }

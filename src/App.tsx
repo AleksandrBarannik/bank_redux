@@ -1,5 +1,8 @@
 import React from 'react';
-import UserList from "./components/userList";
+import UserList from './components/UserList';
+import TodoList from "./components/TodoList";
+
+
 
 
 const App = ()=>
@@ -7,6 +10,8 @@ const App = ()=>
     return (
       <div className="App">
           <UserList/>
+          <hr></hr>
+          <TodoList/>
       </div>
     );
 };

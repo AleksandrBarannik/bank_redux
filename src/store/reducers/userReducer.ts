@@ -12,11 +12,11 @@ export function userReduce(state = initialState,action:UserAction) : UserState
 {
     switch (action.type) {
         case UserActionType.FETCH_USERS:
-            return {loading: true, error: null, users: []};
+            return {...state,loading: true};
         case UserActionType.FETCH_USERS_SUCCESS:
-            return {loading: false, error: null, users: action.payload};
+            return {...state,loading: false, users: action.payload};
         case UserActionType.FETCH_USERS_ERROR:
-            return {loading: false, error: action.payload, users: []};
+            return {...state,loading: false,error: action.payload};
         default:
             return state
     }
